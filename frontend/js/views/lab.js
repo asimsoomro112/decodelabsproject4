@@ -39,6 +39,7 @@ function styles() {
     .sb-kv { display: grid; grid-template-columns: 150px 1fr; gap: 6px 12px; font-size: 14px; margin: 10px 0; }
     .sb-kv dt { color: var(--sb-muted); }
     .sb-kv dd { margin: 0; word-break: break-word; }
+    .sb-kv dd .chip { white-space: normal; text-align: left; line-height: 1.4; }
     .sb-snippet .tok-branch { opacity: .45; }
     .sb-snippet .tok-branch.taken { opacity: 1; background: rgba(79,209,197,.16); border-radius: 6px; }
     .sb-snippet .line { display: block; padding: 1px 8px; }
