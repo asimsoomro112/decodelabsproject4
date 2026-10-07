@@ -1,0 +1,68 @@
+/* Design tokens. Dark is the default; [data-theme="light"] overrides. */
+@layer tokens, base, layout, components, glass, motion, utilities;
+
+@layer tokens {
+  :root {
+    color-scheme: dark;
+
+    /* Brand palette */
+    --mocha: #a5856f; /* Mocha Mousse */
+    --ethereal: #a0d4e0; /* Ethereal Blue */
+    --moonlit: #f2f0ea; /* Moonlit Grey */
+    --mocha-ink: #7a5648;
+    --espresso: #2b1f19;
+
+    /* Surfaces & ink (dark default) */
+    --bg: #14100d;
+    --bg-2: #1d1712;
+    --surface: rgba(43, 31, 25, 0.55);
+    --surface-solid: #241b14;
+    --surface-raised: rgba(58, 42, 32, 0.72);
+    --ink: #f2f0ea;
+    --ink-strong: #ffffff;
+    --muted: #bfae97;
+    --line: rgba(165, 133, 111, 0.28);
+    --line-strong: rgba(165, 133, 111, 0.5);
+
+    /* Status */
+    --emerald: #34d399;
+    --amber: #fbbf24;
+    --rose: #fb7185;
+    --sky: #7dd3fc;
+
+    /* Type */
+    --font-display: 'Montserrat', system-ui, -apple-system, sans-serif;
+    --font-body: 'Open Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+
+    /* Shape & depth */
+    --radius: 14px;
+    --radius-sm: 8px;
+    --radius-pill: 999px;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.3);
+
+    /* Glass specular position (updated by pointer) */
+    --mx: 50%;
+    --my: 0%;
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --bg: #f5f1ea;
+    --bg-2: #ece4d6;
+    --surface: rgba(255, 255, 255, 0.62);
+    --surface-solid: #fffdf8;
+    --surface-raised: rgba(255, 255, 255, 0.85);
+    --ink: #2b1f19;
+    --ink-strong: #14100d;
+    --muted: #7a5648;
+    --line: rgba(122, 86, 72, 0.28);
+    --line-strong: rgba(122, 86, 72, 0.5);
+    --shadow: 0 18px 50px rgba(122, 86, 72, 0.18);
+    --shadow-sm: 0 6px 18px rgba(122, 86, 72, 0.14);
+  }
+}

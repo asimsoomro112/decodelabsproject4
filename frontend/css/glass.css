@@ -1,0 +1,50 @@
+/* Liquid Glass 2.0 recipe: translucent blur + saturate, gradient hairline
+   border, and a specular highlight that follows --mx/--my (set from pointer). */
+@layer glass {
+  .glass, .card, .toast {
+    position: relative;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02) 40%, rgba(165, 133, 111, 0.06)),
+      var(--surface);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    border: 1px solid var(--line-strong);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .glass::after, .card::after, .toast::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      220px circle at var(--mx) var(--my),
+      rgba(255, 255, 255, 0.14),
+      transparent 65%
+    );
+    opacity: 0.9;
+  }
+
+  /* Fallback when backdrop-filter is unavailable: solid surface. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass, .card, .toast {
+      background: var(--surface-solid);
+    }
+    .glass::after, .card::after, .toast::after {
+      display: none;
+    }
+    .card, .toast {
+      backdrop-filter: none;
+    }
+  }
+
+  :root[data-theme='light'] .glass,
+  :root[data-theme='light'] .card,
+  :root[data-theme='light'] .toast {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.12) 40%, rgba(165, 133, 111, 0.1)),
+      var(--surface);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+}

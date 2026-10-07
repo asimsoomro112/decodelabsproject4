@@ -1,0 +1,32 @@
+{
+  "description": "SynapseBridge \u2014 DecodeLabs Project 4: Frontend & Backend Integration. A vanilla-JS SPA wired to an Express 5 + TypeScript + Zod 4 API, making every request visible as it crosses the bridge.",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "name": "synapsebridge",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix backend run build",
+    "check": "npm run lint && npm run typecheck && npm test",
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm --prefix backend run dev",
+    "dev:web": "node scripts/serve-web.mjs",
+    "lint": "eslint .",
+    "start": "NODE_ENV=production node backend/dist/server.js",
+    "test": "npm --prefix backend run test && node --test \"frontend/tests/*.test.js\"",
+    "typecheck": "npm --prefix backend run typecheck && npx tsc --noEmit -p frontend/tsconfig.json"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "workspaces": [
+    "backend"
+  ]
+}

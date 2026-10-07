@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SynapseBridge — Frontend × Backend Integration</title>
+  <meta name="description" content="SynapseBridge: a vanilla-JS SPA wired to an Express API, making every request visible as it crosses the bridge. DecodeLabs Project 4.">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SynapseBridge — Frontend × Backend Integration">
+  <meta property="og:description" content="Every request, visible as it crosses the bridge. A vanilla-JS SPA wired to an Express API.">
+  <meta property="og:image" content="assets/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SynapseBridge — Frontend × Backend Integration">
+  <meta name="twitter:description" content="Every request, visible as it crosses the bridge.">
+  <meta name="twitter:image" content="assets/og-cover.png">
+
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f1ea">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14100d">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Content Security Policy: self scripts/styles; fonts + API hosts allowlisted -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://localhost:4000 http://127.0.0.1:4000 https://*.onrender.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; script-src 'self'">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles: tokens → base → layout → components → glass → motion → utilities -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/glass.css">
+  <link rel="stylesheet" href="css/motion.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <header id="site-header"></header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer id="site-footer">
+    <div class="container footer__inner">
+      <p class="muted">SynapseBridge · DecodeLabs Project 4 · every request visible</p>
+      <button id="bg-toggle" class="btn btn--ghost btn--sm" type="button" aria-pressed="true">Background: on</button>
+    </div>
+  </footer>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div id="announcer" class="sr-only" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">
+      <h1>SynapseBridge needs JavaScript</h1>
+      <p>This app is a JavaScript single-page application. Please enable JavaScript to use it.</p>
+    </div>
+  </noscript>
+
+  <!-- Runtime config (plain script) must load before modules -->
+  <script src="config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
