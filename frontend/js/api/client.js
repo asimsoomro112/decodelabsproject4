@@ -103,7 +103,9 @@ function newTraceId() {
 function buildUrl(base, path, query) {
   const b = base.endsWith('/') ? base.slice(0, -1) : base;
   const p = path.startsWith('/') ? path : `/${path}`;
-  const url = new URL(b + p);
+  const urlStr = b + p;
+  const origin = typeof window !== 'undefined' && window.location ? window.location.origin : 'http://localhost';
+  const url = new URL(urlStr, urlStr.startsWith('http') ? undefined : origin);
   if (query) {
     for (const [k, v] of Object.entries(query)) {
       if (v === undefined || v === null) continue;
