@@ -454,7 +454,7 @@ export async function mount(root) {
       dot.classList.add('on');
       apiLabel.textContent = 'API online at /api/v1';
     } catch {
-      apiLabel.textContent = 'API unreachable — is the backend running on :4000?';
+      apiLabel.textContent = 'API unreachable — check your network or backend.';
     }
   })();
 

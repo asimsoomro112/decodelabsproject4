@@ -69,7 +69,7 @@ export function initBackground() {
   const reducedMotion =
     typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const serverHost = hostOf(API_BASE_URL, 'localhost:4000');
+  const serverHost = hostOf(API_BASE_URL, window.location.host);
   const browserHost = window.location.host || 'localhost:5173';
 
   /** @type {{ w: number, h: number, dpr: number, mobile: boolean }} */
